@@ -35,6 +35,12 @@ services:
       - '--collector.filesystem.ignored-mount-points=^/(sys|proc|dev|host|etc)($$|/)'
     ports:
       - 9100:9100
+  oracle-exporter:
+    image: iamseth/oracledb_exporter
+    environment:
+      DATA_SOURCE_NAME: system/oracle@oracle/xe
+    ports:
+      - 9161:9161
   grafana: 
     image: grafana/grafana
     volumes:     
